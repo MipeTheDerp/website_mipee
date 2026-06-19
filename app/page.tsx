@@ -10,7 +10,7 @@ export default function Home() {
 
         {/* Logo area */}
         <div className="text-2xl font-blod tracking-tight">
-          MySite<span className="texr-blue-400">.</span>
+          Mipee<span className="texr-blue-400"></span>
         </div>
 
         {/* Links area */}

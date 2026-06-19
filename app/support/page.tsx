@@ -1,0 +1,66 @@
+
+import Link from 'next/link';
+
+
+
+export const metadata = {
+  title: "Support | Mipee",
+  description: "Få hjelp og svar på vanlige spørsmål.",
+};
+
+export default function SupportPage() {
+  // 💡 Her kan du bytte ut med din egen e-postadresse!
+  const contactEmail = "din.epost@eksempel.no";
+
+  // 💡 Her kan du endre, legge til eller fjerne spørsmål og svar
+  const faqs = [
+    {
+      question: "Hva er Mipee?",
+      answer: "Mipee er et spennende nytt prosjekt som er under utvikling. Følg med for flere oppdateringer!"
+    },
+    {
+      question: "Koster det penger å bruke nettsiden?",
+      answer: "Nei, Mipee er helt gratis å bruke for alle."
+    },
+    {
+      question: "Hvordan kan jeg rapportere en feil?",
+      answer: "Hvis du opplever problemer, setter vi stor pris på om du sender oss en e-post med en beskrivelse av feilen."
+    }
+  ];
+
+  return (
+    <main className="max-w-3xl mx-auto py-16 px-6">
+      <h1 className="text-4xl font-bold mb-4">Support & Hjelp</h1>
+      <p className="text-gray-600 mb-12 text-lg">
+        Velkommen til supportsiden vår. Her finner du svar på vanlige spørsmål og informasjon om hvordan du kontakter oss.
+      </p>
+
+      {/* Kontaktseksjon */}
+      <section className="mb-16 bg-blue-50 border border-blue-100 rounded-2xl p-8">
+        <h2 className="text-2xl font-semibold mb-3">Kontakt oss</h2>
+        <p className="text-gray-700 mb-6">
+          Finner du ikke det du leter etter i listen under? Send oss en e-post, så hjelper vi deg så fort vi kan!
+        </p>
+        <a 
+          href={`mailto:${contactEmail}`} 
+          className="inline-block bg-black text-white px-6 py-3 rounded-xl font-medium hover:bg-gray-800 transition-colors duration-200"
+        >
+          Send e-post til {contactEmail}
+        </a>
+      </section>
+
+      {/* FAQ-seksjon */}
+      <section>
+        <h2 className="text-2xl font-semibold mb-6">Ofte stilte spørsmål (FAQ)</h2>
+        <div className="space-y-4">
+          {faqs.map((faq, index) => (
+            <div key={index} className="border border-gray-200 rounded-xl p-6 hover:border-gray-300 transition-colors duration-200">
+              <h3 className="text-lg font-medium text-gray-900 mb-2">{faq.question}</h3>
+              <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    </main>
+  );
+}
